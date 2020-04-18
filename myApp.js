@@ -209,6 +209,8 @@ app.use(helmet.contentSecurityPolicy({
 
 // ---- DO NOT EDIT BELOW THIS LINE ---------------------------------------
 
+const bcrypt = require('bcrypt');
+
 module.exports = app;
 var api = require('./server.js');
 app.use(express.static('public'));
