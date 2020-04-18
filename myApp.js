@@ -211,6 +211,14 @@ app.use(helmet.contentSecurityPolicy({
 
 const bcrypt = require('bcrypt');
 
+bcrypt.hash('passw0rd!', 13, (err, hash) => {
+  console.log(hash);
+  //$2a$12$Y.PHPE15wR25qrrtgGkiYe2sXo98cjuMCG1YwSI5rJW1DSJp0gEYS
+  bcrypt.compare('passw0rd!', hash, (err, res) => {
+    console.log(res); //true
+  });
+});
+
 module.exports = app;
 var api = require('./server.js');
 app.use(express.static('public'));
