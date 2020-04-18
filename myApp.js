@@ -219,6 +219,12 @@ bcrypt.hash('passw0rd!', 13, (err, hash) => {
   });
 });
 
+var myPlaintextPassword = 'passw0rd!';
+var hash = bcrypt.hashSync(myPlaintextPassword, 13);
+console.log(hash);
+var result = bcrypt.compareSync(myPlaintextPassword, hash);
+console.log(result);
+
 module.exports = app;
 var api = require('./server.js');
 app.use(express.static('public'));
